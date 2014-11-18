@@ -341,6 +341,11 @@ typedef enum {
  */
 @property (assign, getter = isSquare) BOOL square;
 
+/**
+ * Force the HUD dimensions to be equal if possible.
+ */
+@property (nonatomic, assign) BOOL autoHideOnTouch;
+
 @end
 
 

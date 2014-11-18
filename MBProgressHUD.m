@@ -390,6 +390,9 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 	detailsLabel.numberOfLines = 0;
 	detailsLabel.font = self.detailsLabelFont;
 	detailsLabel.text = self.detailsLabelText;
+    
+    self.autoHideOnTouch = YES;
+    
 	[self addSubview:detailsLabel];
 }
 
@@ -654,8 +657,14 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 	}
 }
 
-@end
+//-- SDS: added this method so the HUD will disappear as soon as the user touches the UI
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    
+    if (self.autoHideOnTouch)
+        [self hide:YES];
+}
 
+@end
 
 @implementation MBRoundProgressView {
 	float _progress;
